@@ -68,12 +68,11 @@ def recover(im, t, A, tx=0.1):
         res[:, :, ind] = (im[:, :, ind] - A[0, ind]) / t + A[0, ind]
     return res
 
-# ✅ الدالة المهمة التي يجب أن تكون موجودة!
 def dehaze_image(path_to_image, output_dir):
     filename = os.path.basename(path_to_image)
     img = cv2.imread(path_to_image)
     if img is None:
-        print(f"❌ تعذر تحميل الصورة: {filename}")
+        print(f"Image could not be loaded.❌: {filename}")
 
         return
 
@@ -89,4 +88,4 @@ def dehaze_image(path_to_image, output_dir):
 
     output_path = os.path.join(output_dir, f"{filename.split('.')[0]}_dcp.png")
     cv2.imwrite(output_path, (J * 255).astype(np.uint8))
-    print(f"✅ تمت معالجة الصورة وحفظها في: {output_path}")
+    print(f"The image has been processed and saved in✅: {output_path}")

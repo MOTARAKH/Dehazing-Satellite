@@ -32,7 +32,7 @@ def SSR(img, variance):
 def retinex_enhance(input_path, output_path, method="MSR", variance_list=[15, 80, 30], variance=300):
     img = cv2.imread(input_path)
     if img is None:
-        print(f"❌ تعذر تحميل الصورة: {input_path}")
+        print(f"Image could not be loaded.❌: {input_path}")
         return
 
     if method == "MSR":
@@ -40,7 +40,7 @@ def retinex_enhance(input_path, output_path, method="MSR", variance_list=[15, 80
     elif method == "SSR":
         enhanced = SSR(img, variance)
     else:
-        raise ValueError("الطريقة غير معروفة، اختر 'MSR' أو 'SSR'")
+        raise ValueError("Method unknown, choose 'MSR' or 'SSR'")
 
     cv2.imwrite(output_path, enhanced)
-    print(f"✅ تم حفظ الصورة المحسّنة: {output_path}")
+    print(f"The image has been processed and saved in✅: {output_path}")
