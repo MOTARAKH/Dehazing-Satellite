@@ -7,4 +7,3 @@ All technical details, code explanations, results, and visualizations are availa
 
 ---
 
-To run the code, open `DehazingDemo.ipynb` in Jupyter Notebook.
